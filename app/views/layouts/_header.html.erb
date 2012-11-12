@@ -6,7 +6,8 @@
         <ul class="nav pull-right">
           <li><%= link_to "Home",    root_path %></li>
           <li><%= link_to "Help",    help_path %></li>
-          <li><%= link_to "Sign in", user_omniauth_authorize_path(:twitter) %></li>
+          <li><%= link_to "Sign in Twitter", user_omniauth_authorize_path(:twitter) %></li>
+		  <li><%= link_to "Sign in Facebook", user_omniauth_authorize_path(:facebook) %></li>
         </ul>
       </nav>
     </div>
