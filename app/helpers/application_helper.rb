@@ -9,4 +9,15 @@ module ApplicationHelper
       "#{base_title} | #{page_title}"
     end
   end
+  
+  def whatType(input)
+   if input == 1
+     "Borrow"
+   elsif input == 2
+     "Lend"
+   else
+     "ERROR"
+   end
+  end
+  
 end

@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @transaction.user_id %>
+</p>
+
+<p>
+  <b>Friend:</b>
+  <%= @transaction.friend_id %>
+</p>
+
+<p>
+  <b>Amount:</b>
+  <%= @transaction.amount %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @transaction.t_type %>
+</p>
+
+<p>
+  <b>Deadline:</b>
+  <%= @transaction.deadline %>
+</p>
+
+
+<%= link_to 'Edit', edit_transaction_path(@transaction) %> |
+<%= link_to 'Back', transactions_path %>
