@@ -3,6 +3,8 @@ class TransactionsController < ApplicationController
   # GET /transactions.json
   def index
     @transactions = Transaction.all
+    @transactions_by_date = @transactions.group_by(&:deadline)
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
 
     respond_to do |format|
       format.html # index.html.erb

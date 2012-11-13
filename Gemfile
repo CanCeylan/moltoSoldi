@@ -5,6 +5,7 @@ gem 'devise'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'bootstrap-sass', '2.0.4'
+gem 'jquery-ui-rails'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'
