@@ -4,7 +4,7 @@
   <aside class="span4">
     <section>
       	<h1>Listing transactions</h1>	
-		<br><br>
+		<br><%= link_to 'New Transaction', new_transaction_path %><br>
 		<% @transactions.each do |transaction| %>
 		
 		<br>
@@ -17,7 +17,7 @@
 		    <table>
 		      <thead>
 		        <tr>
-		    <th>	<%= Friend.find(transaction.friend_id).name %><br><span>€ <%= transaction.amount %>	</span></th>
+		    <th>	<%= link_to Friend.find(transaction.friend_id).name, '/friends/' + Friend.find(transaction.friend_id).id.to_s %><br><span>€ <%= transaction.amount %>	</span></th>
 	        </tr></thead>	
 			<tbody>
 				<tr class="grey">
@@ -58,13 +58,3 @@
 </div>
 
 
-
-
-
-
-
-
-
-<br />
-
-<%= link_to 'New Transaction', new_transaction_path %>

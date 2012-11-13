@@ -48,10 +48,13 @@ p {/*color: #6b6b6b;*/
     border-right: 1px solid #D5D5D5;
     border-top: 1px solid #D5D5D5;
     color: #2F2F2F;
-    font-size: 24px;
     height: 65px;}
+
+.lend_table table th a {
+    font-size: 24px;
+    }
 	
-.lend_table table th span {
+.lend_table table th span{
 	color: #23B0F1;
     font-size: 24px;}
 	
@@ -140,14 +143,17 @@ p {/*color: #6b6b6b;*/
 	border-left: 1px solid #252525;
     border-right: 1px solid #252525;
     color: #ffffff;
-    font-size: 24px;
     height: 65px;}
+
+.borrow_table table th a{
+    font-size: 24px;}	
+	
 	
 .borrow_table table th span {
 	color: #a9a9a9;
     font-size: 24px;}
 	
-.borrow_table table tr {
+.borrow_table table tr{
 	height: 20px;
     text-align: center;}
 	

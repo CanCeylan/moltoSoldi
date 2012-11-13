@@ -7,5 +7,5 @@
   <%= link_to "view my profile", '/users/' + current_user.id.to_s %>
 </span>
 <span>
-  <%= pluralize(current_user.transactions.count, "transaction") %>
+  <%= link_to pluralize(current_user.transactions.count, "transaction"), transactions_path %>
 </span>
