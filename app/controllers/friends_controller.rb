@@ -1,4 +1,6 @@
 class FriendsController < ApplicationController
+  
+   before_filter :authenticate_user!
   # GET /friends
   # GET /friends.json
   def index

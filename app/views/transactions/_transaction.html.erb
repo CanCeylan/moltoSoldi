@@ -1,0 +1,6 @@
+<li>
+  <span class="content"><%= Friend.find(transaction.friend_id).name %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(transaction.created_at) %> ago.
+  </span>
+</li>
