@@ -5,7 +5,7 @@ class FriendsController < ApplicationController
   # GET /friends.json
   def index
     @friends = current_user.friends.paginate(page: params[:page], per_page: 10)
-
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @friends }
@@ -16,6 +16,8 @@ class FriendsController < ApplicationController
   # GET /friends/1.json
   def show
     @friend = Friend.find(params[:id])
+    @transactions = current_user.transactions.where(:friend_id => @friend.id)
+    
 
     respond_to do |format|
       format.html # show.html.erb
