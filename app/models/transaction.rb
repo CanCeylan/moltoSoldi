@@ -1,5 +1,5 @@
 class Transaction < ActiveRecord::Base
-  attr_accessible :amount, :deadline, :friend_id, :t_type, :user_id
+  attr_accessible :amount, :deadline, :friend_id, :t_type, :user_id, :status
   
   belongs_to :user
   
@@ -8,4 +8,5 @@ class Transaction < ActiveRecord::Base
   validates :deadline, :presence => true
   
   TRANSACTION_TYPES = [['Borrow', '1'], ['Lend', '2']]
+  TRANSACTION_SITS = [['Open', '0'], ['Close', '1']]
 end

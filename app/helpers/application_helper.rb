@@ -20,6 +20,16 @@ module ApplicationHelper
    end
   end
   
+  def whatStat(input)
+   if input == 1
+     "Closed"
+   elsif input == 0
+     "Open"
+   else
+     "ERROR"
+   end
+  end
+  
   def gravatar_for(user, options = { size: 50 })
        gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
        size = options[:size]

@@ -1,13 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>User:</b>
-  <%= @transaction.user_id %>
-</p>
 
 <p>
   <b>Friend:</b>
-  <%= @transaction.friend_id %>
+<%= Friend.find(@transaction.friend_id).name %>
 </p>
 
 <p>
@@ -17,7 +13,12 @@
 
 <p>
   <b>Type:</b>
-  <%= @transaction.t_type %>
+  <%= whatType(@transaction.t_type) %>
+</p>
+
+<p>
+  <b>Situation:</b>
+  <%= whatStat(@transaction.status) %>
 </p>
 
 <p>

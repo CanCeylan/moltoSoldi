@@ -24,6 +24,10 @@
     <%= f.label :t_tpye, "Type" %><br />
     <%= f.select(:t_type, Transaction::TRANSACTION_TYPES) %>
   </div>
+	<div class="field">
+    <%= f.label :status, "Type" %><br />
+    <%= f.select(:status, Transaction::TRANSACTION_SITS) %>
+  </div>
   <div class="field">
     <%= f.label :deadline %><br />
     <%= f.text_field :deadline %>

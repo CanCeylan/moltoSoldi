@@ -16,8 +16,7 @@ class FriendsController < ApplicationController
   # GET /friends/1.json
   def show
     @friend = Friend.find(params[:id])
-    @transactions = current_user.transactions.where(:friend_id => @friend.id)
-    
+    @transactions = current_user.transactions.where(:friend_id => @friend.id).paginate(page: params[:page], per_page: 5)
 
     respond_to do |format|
       format.html # show.html.erb
