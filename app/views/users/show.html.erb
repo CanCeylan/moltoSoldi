@@ -2,11 +2,7 @@
 <div class="row">
   <aside class="span4">
     <section>
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.email %>
-      </h1>
-    </section>
+      	<%= render 'shared/user_info' %>
 	<section>
 	<%= render 'shared/stats' %>
 	  <% if @friends.any? %>

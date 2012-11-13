@@ -1,0 +1,11 @@
+ <%= gravatar_for current_user %>
+
+<h1>
+  <%= current_user.email %>
+</h1>
+<span>
+  <%= link_to "view my profile", '/users/' + current_user.id.to_s %>
+</span>
+<span>
+  <%= pluralize(current_user.transactions.count, "transaction") %>
+</span>
