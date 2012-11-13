@@ -47,6 +47,7 @@ class TransactionsController < ApplicationController
     @transaction = current_user.transactions.build(params[:transaction])
     @transaction.status = 0
 
+
     respond_to do |format|
       if @transaction.save
         TransactionMailer.transaction_created(Friend.find(@transaction.friend_id)).deliver

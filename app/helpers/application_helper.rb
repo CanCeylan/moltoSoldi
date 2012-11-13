@@ -56,5 +56,4 @@ module ApplicationHelper
     components.join(", ")
   end
   
-  
 end

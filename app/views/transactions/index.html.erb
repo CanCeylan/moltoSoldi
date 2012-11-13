@@ -23,7 +23,11 @@
 					<td>Deadline is in <%= time_diff_in_natural_language(Time.now, transaction.deadline) %></td>
 				</tr>
 				<tr><td>
-			    <%= link_to 'Destroy', transaction, method: :delete, data: { confirm: 'Are you sure?' }%></td></tr>
+			    <%= link_to 'Destroy', transaction, method: :delete, data: { confirm: 'Are you sure?' }%>
+				<% osman = Friend.find(transaction.friend_id).name %>
+				<%= link_to "Socialize !", posts_path(:tweet => "#{osman} needs to pay !"), :method => :post, :remote => true, :class => "button" %> 
+		
+			</td></tr>
 			 </tbody>
 		    </table>
 		  </div>
