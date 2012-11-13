@@ -1,0 +1,6 @@
+<li>
+  <%= gravatar_for friend, size: 52 %>
+  <%= link_to friend.name, '/friends/' + friend.id.to_s %>
+  <br><%= friend.email%><br><td><%= link_to 'Edit', edit_friend_path(friend) %></td>
+  <td><%= link_to 'Destroy', friend, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</li>

@@ -1,27 +1,13 @@
-<h1>Listing friends</h1>
+<% provide(:title, 'Listing Friends') %>
+<h1>All friends</h1>
 
-<table>
-  <tr>
-    <th>User</th>
-    <th>Name</th>
-    <th>Email</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<%= will_paginate %>
 
-<% @friends.each do |friend| %>
-  <tr>
-    <td><%= friend.user_id %></td>
-    <td><%= friend.name %></td>
-    <td><%= friend.email %></td>
-    <td><%= link_to 'Show', friend %></td>
-    <td><%= link_to 'Edit', edit_friend_path(friend) %></td>
-    <td><%= link_to 'Destroy', friend, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+<ul class="users">
+  <%= render @friends %>
+</ul>
 
-<br />
+<%= will_paginate %>
 
+<br>
 <%= link_to 'New Friend', new_friend_path %>

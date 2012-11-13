@@ -2,7 +2,7 @@ class FriendsController < ApplicationController
   # GET /friends
   # GET /friends.json
   def index
-    @friends = Friend.all
+    @friends = current_user.friends.paginate(page: params[:page], per_page: 10)
 
     respond_to do |format|
       format.html # index.html.erb
