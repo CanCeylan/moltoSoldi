@@ -7,5 +7,5 @@ class Transaction < ActiveRecord::Base
   validates :friend_id, :presence => true
   validates :deadline, :presence => true
   
-  TRANSACTION_TYPES = [['Borrow', '1'], ['Land', '2']]
+  TRANSACTION_TYPES = [['Borrow', '1'], ['Lend', '2']]
 end

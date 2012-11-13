@@ -11,11 +11,18 @@ class UsersController < ApplicationController
     @users = User.paginate(page: params[:page], per_page: 10)
   end
   
-  def loans
-     @title = "Following"
+  def lends
+     @title = "Lends"
      @user = User.find(params[:id])
-     @users = @user.followed_users.paginate(page: params[:page])
-     render 'show_follow'
+     @friends = @user.friends.paginate(page: params[:page])
+     render 'lends'
+  end
+  
+  def lends
+     @title = "Borrows"
+     @user = User.find(params[:id])
+     @friends = @user.friends.paginate(page: params[:page])
+     render 'borrows'
   end
   
   

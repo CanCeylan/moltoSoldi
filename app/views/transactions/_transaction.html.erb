@@ -1,6 +1,6 @@
 <li>
-  <span class="content"><%= Friend.find(transaction.friend_id).name %></span>
+  <span class="content"><%= link_to Friend.find(transaction.friend_id).name, '/friends/' + Friend.find(transaction.friend_id).id.to_s %></span>
   <span class="timestamp">
-    Posted <%= time_ago_in_words(transaction.created_at) %> ago.
+	Deadline is in <%= time_diff_in_natural_language(Time.now, transaction.deadline) %>
   </span>
 </li>

@@ -1,0 +1,15 @@
+<% @user ||= current_user %>
+<div class="stats">
+  <a href="<%= borrows_user_path(@user) %>">
+    <strong id="following" class="stat">
+      <%= "€ " + current_user.total_borrows.to_s %>
+    </strong>
+    borrows
+  </a>
+  <a href="<%= lends_user_path(@user) %>">
+    <strong id="followers" class="stat">
+      <%= "€ " + current_user.total_lends.to_s %>
+    </strong>
+    lends
+  </a>
+</div>

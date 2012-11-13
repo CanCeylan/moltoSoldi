@@ -7,6 +7,16 @@
         <%= @user.email %>
       </h1>
     </section>
+	<section>
+	<%= render 'shared/stats' %>
+	  <% if @friends.any? %>
+	   <div class="user_avatars">
+         <% @friends.each do |friend| %>
+         <%= link_to gravatar_for(friend, size: 30), '/friends/' + friend.id.to_s %>
+         <% end %>
+       </div>
+     <% end %>
+	</section>
   </aside>
 <div class="span8">
     <% if @user.transactions.any? %>

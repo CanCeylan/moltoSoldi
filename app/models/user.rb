@@ -55,6 +55,14 @@ class User < ActiveRecord::Base
     user
   end
   
+  def total_borrows
+    self.transactions.where(:t_type => 1).sum(:amount)
+  end
+  
+  def total_lends
+    self.transactions.where(:t_type => 2).sum(:amount)
+  end
+  
   
   
 end
