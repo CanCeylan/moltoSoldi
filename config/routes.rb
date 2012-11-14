@@ -1,12 +1,15 @@
 MoltoSoldi::Application.routes.draw do
   
+  resources :authentications
   resources :transactions
   resources :friends
   resources :posts
   resources :mails
+  
+  match '/auth/:provider/callback' => 'authentications#create'
 
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"},
-                       controllers: {omniauth_callbacks: "omniauth_callbacks"}
+                       controllers: {omniauth_callbacks: "authentications", registrations: "registrations"}
 
   root to: 'static_pages#home'
   match '/users/:id', to: 'users#show'

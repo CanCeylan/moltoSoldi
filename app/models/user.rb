@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   
-  has_many :friends
+  has_many :friends, :dependent => :destroy
   has_many :transactions
+  has_many :authentications, :dependent => :destroy
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -12,13 +13,17 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid
   # attr_accessible :title, :body
   
+  def apply_omniauth(omni)
+    authentications.build(:provider => omni['provider'], :uid => omni['uid'], :token => omni['credentials'].token, :token_secret => omni['credentials'].token_secret)
+  end
+  
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_create do |user|
       user.provider = auth.provider
       user.uid = auth.uid
     end
   end
-  
+    
   def self.new_with_session(params, session)
     if session["devise.user_attributes"]
       new(session["devise.user_attributes"], without_protection: true) do |user|
@@ -31,7 +36,7 @@ class User < ActiveRecord::Base
   end
   
   def password_required?
-    super && provider.blank?
+    (authentications.empty? || !password.blank?) && super #&& provider.blank?
   end
   
   
