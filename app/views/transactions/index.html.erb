@@ -22,9 +22,14 @@
 				<tr class="grey">
 					<td>Deadline is in <%= time_diff_in_natural_language(Time.now, transaction.deadline) %></td>
 				</tr>
+				<tr>
+				<% osman = Friend.find(transaction.friend_id).name %>
+				<%= link_to image_tag("twitter.png", alt: "Share on Twitter"), posts_path(:tweet => "#{osman} needs to pay !"), :method => :post, :remote => true, :class => "button" %>
+				<%= link_to image_tag("facebook.png", alt: "Share on Facebook"), posts_path(:tweet => "#{osman} needs to pay !"), :method => :post, :remote => true, :class => "button" %>
+				
+				</tr>
 				<tr><td>
 			    <%= link_to 'Destroy', transaction, method: :delete, data: { confirm: 'Are you sure?' }%>
-				<% osman = Friend.find(transaction.friend_id).name %>
 				<%= link_to "Socialize !", posts_path(:tweet => "#{osman} needs to pay !"), :method => :post, :remote => true, :class => "button" %> 
 		
 			</td></tr>
