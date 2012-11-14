@@ -1,7 +1,8 @@
-<% provide(:title, @user.email) %>
+<% provide(:title, "Transactions") %>
+
 <div class="row">
   <aside class="span4">
-    <section>
+	<section>
       	<%= render 'shared/user_info' %>
 	<section>
 	<%= render 'shared/stats' %>
@@ -14,9 +15,9 @@
      <% end %>
 	</section>
   </aside>
+
+
 <div class="span8">
-    <section>
-	    <%= render 'shared/transactionfeed' %>
-     </section>
-  </div>
+	
+	<%= render 'shared/transactionsindex' %>
 </div>

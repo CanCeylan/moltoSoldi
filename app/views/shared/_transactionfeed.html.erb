@@ -1,0 +1,7 @@
+<% if @user.transactions.any? %>
+  <h3>Transactions (<%= @user.transactions.count %>)</h3>
+  <ol class="transactions">
+    <%= render @transactions %>
+  </ol>
+  <%= will_paginate @transactions %>
+<% end %>

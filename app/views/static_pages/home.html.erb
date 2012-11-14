@@ -5,14 +5,20 @@
         <%= render 'shared/user_info' %>
       </section>
 	  <section>
-	        <%= render 'shared/stats' %>
+	    <%= render 'shared/stats' %>
+      </section>
+	<br>
+	<section>
+	    <%= render 'shared/transactionfeed' %>
       </section>
     </aside>
-	
+	<div class="span8">
+		<%= render 'shared/calendarview' %>  
+	</div>
   </div>  
 <% else %>
   <div class="center hero-unit">
-    <h1>Welcome to the Sample App</h1>
+    <h1>Welcome to the MoltoSoldiApp</h1>
 
     <h2>
       This is the home page for the

@@ -1,0 +1,24 @@
+		<h2>Listing transactions</h2>	
+		<br><%= link_to 'New Transaction', new_transaction_path %><br>
+		
+<% @transactions.each do |transaction| %>
+		
+	<div id="posts-list">
+		<article class="format-standard">
+			<div class="entry-date"><div class="number">€<%= transaction.amount %></div> <div class="year"><%= whatType(transaction.t_type)%></div></div>
+			<h2  class="post-heading"><%= link_to Friend.find(transaction.friend_id).name, edit_transaction_path(transaction) %></h2>
+			<div class="excerpt">Deadline is in <%= time_diff_in_natural_language(Time.now, transaction.deadline) %>
+			</div>
+			<% osman = Friend.find(transaction.friend_id).name %>
+			<%= link_to image_tag("icon-twitter.png", alt: "Share on Twitter"), posts_path(:tweet => "#{osman} needs to pay !"), :method => :post, :remote => true, :class => "button" %>
+			<%= link_to image_tag("icon-facebook.png", alt: "Share on Twitter"), posts_path(:tweet => "#{osman} needs to pay !"), :method => :post, :remote => true, :class => "button" %>
+			<%= link_to image_tag("icon-email.png", alt: "Send Mail"), mails_path(:email => Friend.find(transaction.friend_id).email, :name => Friend.find(transaction.friend_id).name), :method => :post, :remote => true, :class => "button" %>
+			<div class="meta">
+			    <%= link_to 'Destroy', transaction, method: :delete, data: { confirm: 'Are you sure?' }%>
+			</div>
+		</article>
+		
+	</div>
+		
+<% end %>
+<%= will_paginate %>

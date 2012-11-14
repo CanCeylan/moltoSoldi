@@ -13,17 +13,22 @@ class UsersController < ApplicationController
   
   def lends
      @title = "Lends"
+     @date = params[:date] ? Date.parse(params[:date]) : Date.today
      @user = User.find(params[:id])
      @friends = @user.friends.paginate(page: params[:page])
+     @transactions = User.find(params[:id]).transactions.where(:t_type => 2).paginate(page: params[:page], per_page: 5)
      render 'lends'
   end
   
-  def lends
+  def borrows
      @title = "Borrows"
      @user = User.find(params[:id])
      @friends = @user.friends.paginate(page: params[:page])
+      @transactions = User.find(params[:id]).transactions.where(:t_type => 1).paginate(page: params[:page], per_page: 5)
      render 'borrows'
   end
+  
+
   
   
 end

@@ -1,0 +1,20 @@
+<h2>Calendar View</h2>
+	<div id="transactions">
+	
+	  <h2 id="month">
+	    <%= link_to "<", date: @date.prev_month %>
+	    <%= @date.strftime("%B %Y") %>
+	    <%= link_to ">", date: @date.next_month %>
+	  </h2>
+	  <%= calendar @date do |date| %>
+	    <%= date.day %>
+	    <% if @transactions_by_date[date] %>
+	      <ul>
+	        <% @transactions_by_date[date].each do |transaction| %>
+	          <li><%= link_to Friend.find(transaction.friend_id).name + " - " + transaction.amount.to_s, edit_transaction_path(transaction) %></li>
+	        <% end %>
+	      </ul>
+	    <% end %>
+	  <% end %>
+	</div>
+

@@ -2,13 +2,13 @@
 <header class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
-      <%= link_to "sample app", root_path, id: "logo" %>
+      <%= link_to "Molto Soldi", root_path, id: "logo" %>
       <nav>
         <ul class="nav pull-right">
-          <li><%= link_to "Home", root_path %></li>
           <li><%= link_to "Help", help_path %></li>
           <% if signed_in? %>
-            <li><%= link_to "Users", 'users_path' %></li>
+			<li><%= link_to "Transactions", transactions_path %></li>
+            <li><%= link_to "Friends", friends_path %></li>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 Account <b class="caret"></b>
@@ -23,9 +23,19 @@
               </ul>
             </li>
           <% else %>
-            <li><%= link_to "Sign in", new_user_session_path %></li>
-			<li><%= link_to "Sign in Twitter", user_omniauth_authorize_path(:twitter) %></li>
-			  <li><%= link_to "Sign in Facebook", user_omniauth_authorize_path(:facebook) %></li>
+            <li id="fat-menu" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Sign In <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Twitter", user_omniauth_authorize_path(:twitter) %></li>
+                <li><%= link_to "Facebook", user_omniauth_authorize_path(:facebook) %></li>	
+                <li class="divider"></li>
+                <li>
+                  <li><%= link_to "Sign in", new_user_session_path %></li>
+                </li>
+              </ul>
+            </li>
           <% end %>
         </ul>
       </nav>

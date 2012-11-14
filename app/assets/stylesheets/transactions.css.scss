@@ -47,6 +47,7 @@ p {/*color: #6b6b6b;*/
 	border-left: 1px solid #D5D5D5;
     border-right: 1px solid #D5D5D5;
     border-top: 1px solid #D5D5D5;
+	border-bottom: 1px solid #D5D5D5;
     color: #2F2F2F;
     height: 65px;}
 
@@ -319,6 +320,73 @@ cursor: pointer;
 .tablesorter td {
 padding: 15px 10px;
 }
+
+
+
+
+
+
+
+
+
+
+
+#posts-list,
+#post-content{
+	position: relative;
+	width: 100%;
+	float: left;
+	border-left: 1px solid #D5D5D5;
+    border-right: 1px solid #D5D5D5;
+    border-top: 1px solid #D5D5D5;
+	border-bottom: 1px solid #D5D5D5;
+	margin-bottom: 20px;
+}
+
+#posts-list .page-heading,
+.fullwidth-content .page-heading,
+.floated-content .page-heading{
+	margin-bottom: 35px;
+}
+
+#posts-list .entry-date{
+	position: absolute;
+	top: 15px;
+	left: -15px;
+	width: 97px;
+	height: 97px;
+}
+
+#posts-list .entry-date .number{
+	font-size: 50px;
+	text-align: center;
+}
+
+#posts-list .entry-date .year{
+	text-align: center;
+	padding-top: 10px;
+}
+
+#posts-list article{
+text-align: center;
+}
+
+#posts-list .post-heading{
+	margin-bottom: 20px;
+	margin-top: 10px;
+	line-height: 1.0em;
+}
+
+article .meta div{
+	padding: 1px 1px 1px 1px;
+	float: left;
+}
+
+article .meta .comments {
+	border-left: 1px solid #cecece;	
+	border-right: 1px solid #cecece;
+}
+
 
 
 

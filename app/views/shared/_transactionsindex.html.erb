@@ -1,0 +1,28 @@
+<article class="module width_3_quarter">
+<header><h3 class="tabs_involved">Transactions</h3></header>
+<table class="tablesorter" cellspacing="0"> 
+<thead> 
+	<tr> 
+		<th>Amount</th>
+	    <th>Status</th>
+	    <th>Type</th>
+	    <th>Time Left</th>
+		<th>Actions</th>
+	</tr> 
+</thead>
+<tbody> 
+<% @transactions.each do |transaction| %>
+	<tr>
+	    <td>€ <%= transaction.amount %></td>
+	    <td><%= whatType(transaction.t_type) %></td>
+		<td><%= whatStat(transaction.status) %></td>
+	    <td><%= distance_of_time_in_words(Time.now, transaction.deadline) %></td>
+	    <td><%= link_to 'Edit', edit_transaction_path(transaction) %></td>
+	    <td> <%= link_to 'Destroy', transaction, method: :delete, data: { confirm: 'Are you sure?' }%></td>
+	</tr>
+<% end %>
+</table>
+<%= will_paginate @transactions %>
+</tbody> 
+</table>
+</article>
