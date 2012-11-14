@@ -9,6 +9,7 @@ class PostsController < ApplicationController
         tw.oauth_token_secret = "BRNs7EB5LZ9PZxX9Lgx25sIx1scqfeNmNteuVIxgK08"
       end
       Twitter.update(params[:tweet])
+    end
   end 
     
 
