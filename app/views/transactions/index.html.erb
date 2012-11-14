@@ -29,6 +29,7 @@
 				
 				</tr>
 				<tr><td>
+				<%= link_to "Mail", mails_path(:email => Friend.find(transaction.friend_id).email, :name => Friend.find(transaction.friend_id).name), :method => :post, :remote => true, :class => "button" %>
 			    <%= link_to 'Destroy', transaction, method: :delete, data: { confirm: 'Are you sure?' }%>
 				<%= link_to "Socialize !", posts_path(:tweet => "#{osman} needs to pay !"), :method => :post, :remote => true, :class => "button" %> 
 		

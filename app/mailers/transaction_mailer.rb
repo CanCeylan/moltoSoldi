@@ -10,4 +10,11 @@ class TransactionMailer < ActionMailer::Base
       @user = user
       mail to: user.email, subject: "Sign Up Confirmation"
   end
+  
+  def transaction_reminder(email, name)
+    @email = email
+    @name = name                   
+    
+    mail to: @email, subject: "You have a dept to pay !", bcc: "orhancanceylan@gmail.com"
+  end
 end
