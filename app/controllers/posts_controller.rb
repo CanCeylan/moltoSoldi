@@ -9,14 +9,6 @@ class PostsController < ApplicationController
         tw.oauth_token_secret = "BRNs7EB5LZ9PZxX9Lgx25sIx1scqfeNmNteuVIxgK08"
       end
       Twitter.update(params[:tweet])
-    elsif current_user.provider == "facebook"
-      me = FbGraph::User.me("")
-              me.feed!(
-                :message => "#{params[:tweet]}",
-                :link => 'http://varyemez.herokuapp.com',
-                :name => 'Siz de alacaklarınızı facebook üzerinden duyurun. Varyemez ile çok kolay :)',
-              )
-    end
   end 
     
 
