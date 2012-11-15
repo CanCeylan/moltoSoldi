@@ -44,16 +44,6 @@ class TransactionsController < ApplicationController
     end
   end
   
-  def closed
-    @transactions = current_user.transactions.where(:status => 1).paginate(page: params[:page], per_page: 5)
-    @transactions_by_date = @transactions.group_by(&:deadline)
-    @date = params[:date] ? Date.parse(params[:date]) : Date.today
-
-    respond_to do |format|
-        format.html # index.html.erb
-        format.json { render json: @transactions }
-    end
-  end
 
   # GET /transactions/1/edit
   def edit
