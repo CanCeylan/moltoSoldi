@@ -53,11 +53,12 @@ class AuthenticationsController < ApplicationController
       user = User.new
       user.provider = omni.provider
       user.uid = omni.uid
+      user.email = omni['extra']['raw_info'].email 
 
       user.apply_omniauth(omni)
 
       if user.save
-        flash[:notice] = "Walla logged in."
+        flash[:notice] = "Logged in."
         sign_in_and_redirect User.find(authentication.user_id)             
       else
         session[:omniauth] = omni.except('extra')
