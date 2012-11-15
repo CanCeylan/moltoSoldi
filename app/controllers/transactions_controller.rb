@@ -29,6 +29,9 @@ class TransactionsController < ApplicationController
   # GET /transactions/new.json
   def new
     @transaction = Transaction.new
+    @transaction.friend_id = params[:friend_id]
+    @transaction.t_type = params[:t_type]
+    @transaction.status = params[:status]
 
     respond_to do |format|
       format.html # new.html.erb
@@ -45,8 +48,6 @@ class TransactionsController < ApplicationController
   # POST /transactions.json
   def create
     @transaction = current_user.transactions.build(params[:transaction])
-    @transaction.status = 0
-
 
     respond_to do |format|
       if @transaction.save

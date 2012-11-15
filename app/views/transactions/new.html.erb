@@ -1,5 +1,40 @@
 <h1>New transaction</h1>
 
-<%= render 'form' %>
+<%= form_for(@transaction) do |f| %>
+  <% if @transaction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
+
+      <ul>
+      <% @transaction.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ 
+  <div class="field">
+    <%= f.label :friend_id %><br />
+    <%= f.collection_select(:friend_id, current_user.friends, :id, :name, {:prompt => true})%>
+  </div>
+  <div class="field">
+    <%= f.label :amount %><br />
+    <%= f.number_field :amount %>
+  </div>
+  <div class="field">
+    <%= f.label :t_tpye, "Type" %><br />
+    <%= f.select(:t_type, Transaction::TRANSACTION_TYPES) %>
+  </div>
+	<%= f.hidden_field :status, :value => 0 %>
+  <div class="field">
+    <%= f.label :deadline %><br />
+    <%= f.text_field :deadline %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
 
 <%= link_to 'Back', transactions_path %>

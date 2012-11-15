@@ -1,9 +1,9 @@
-<%= link_to "Borrow Money", new_transaction_url, 
+<%= link_to "Borrow Money", new_transaction_url(:friend_id => @friend.id, :t_type => 1, :status => 0), 
                         class: "btn btn-small btn-primary" %>
-<% if current_user.transactions.where(:friend_id => @friend.id, :t_type => 2, :status => 0).exists? %>
-<%= link_to "Lend Money", new_transaction_url, 
+<% if current_user.transactions.where(:friend_id => @friend.id, :t_type => 1).exists? %>
+<%= link_to "Lend Money", new_transaction_url(:friend_id => @friend.id, :t_type => 2, :status => 0), 
                           class: "btn btn-small btn-secondary", data: { confirm: 'Your friend still has dept. Do you still want to continue ?' } %>
 <% else %>
-<%= link_to "Lend Money", new_transaction_url, 
+<%= link_to "Lend Money", new_transaction_url(:friend_id => @friend.id, :t_type => 2, :status => 0),
                           class: "btn btn-small btn-primary" %>
 <% end %>
