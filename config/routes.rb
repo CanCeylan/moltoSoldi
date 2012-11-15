@@ -1,5 +1,6 @@
 MoltoSoldi::Application.routes.draw do
   
+  match "transactions/:action", :controller => 'transactions', :action => /[a-z]+/i
   resources :authentications
   resources :transactions
   resources :friends

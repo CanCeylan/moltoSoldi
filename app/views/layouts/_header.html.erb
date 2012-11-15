@@ -6,7 +6,15 @@
       <nav>
         <ul class="nav pull-right">
           <% if signed_in? %>
-			<li><%= link_to "Transactions", transactions_path %></li>
+ 		<li id="fat-menu" class="dropdown">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Transactions <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Active", transactions_path(:status => 0) %></li>
+				<li><%= link_to "Passive", transactions_path(:status => 1) %></li>
+            </ul>
+ 		</li>
             <li><%= link_to "Friends", friends_path %></li>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">

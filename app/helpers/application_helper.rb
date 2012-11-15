@@ -30,6 +30,16 @@ module ApplicationHelper
    end
   end
   
+  def whichTransaction(input)
+    if input == "1"
+      "Passive" #+ input.to_s
+    else
+      "Active" #+ input.to_s
+    end
+  end
+  
+  
+  
   def gravatar_for(user, options = { size: 50 })
        gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
        size = options[:size]

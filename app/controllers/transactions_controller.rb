@@ -4,7 +4,12 @@ class TransactionsController < ApplicationController
   # GET /transactions
   # GET /transactions.json
   def index
-    @transactions = current_user.transactions.paginate(page: params[:page], per_page: 5)
+    if params[:status]
+      status = params[:status]
+    else
+      status = 0
+    end
+    @transactions = current_user.transactions.where(:status => status).paginate(page: params[:page], per_page: 5)
     @transactions_by_date = @transactions.group_by(&:deadline)
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
 
@@ -36,6 +41,17 @@ class TransactionsController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @transaction }
+    end
+  end
+  
+  def closed
+    @transactions = current_user.transactions.where(:status => 1).paginate(page: params[:page], per_page: 5)
+    @transactions_by_date = @transactions.group_by(&:deadline)
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
+
+    respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @transactions }
     end
   end
 

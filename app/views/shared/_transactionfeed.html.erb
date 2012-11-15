@@ -1,4 +1,4 @@
-<h3>Transactions (<%= @user.transactions.count %>)</h3><br>
+<h3>Active Transactions (<%= @user.transactions.where(:status => 0).count %>)</h3><br>
 <% if @user.transactions.any? %>
   
   <ol class="transactions">
