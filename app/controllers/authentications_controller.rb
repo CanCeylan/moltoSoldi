@@ -25,8 +25,8 @@ class AuthenticationsController < ApplicationController
       user.apply_omniauth(omni)
       
       if user.save
-        flash[:notice] = "Walla logged in."
-        sign_in_and_redirect User.find(authentication.user_id)             
+        flash[:notice] = "Logged in."
+        sign_in_and_redirect User.find(user.id)             
       else
         session[:omniauth] = omni.except('extra')
         redirect_to new_user_registration_path
