@@ -28,7 +28,7 @@
 			 
 				<%= link_to image_tag("icon-twitter.png", alt: "Share on Twitter"), posts_path(:tweet => "#{message} !", :post_type => "twitter"), :method => :post, :remote => true, :class => "button" %>
 				<%= link_to image_tag("icon-facebook.png", alt: "Share on FaceBook"), posts_path(:tweet => "#{message} !", :post_type => "facebook"), :method => :post, :remote => true, :class => "button" %>
-				<%= link_to image_tag("icon-email.png", alt: "Send Mail"), mails_path(:email => Friend.find(transaction.friend_id).email, :name => Friend.find(transaction.friend_id).name), :method => :post, :remote => true, :class => "button" %></td>
+				<%= link_to image_tag("icon-email.png", alt: "Send Mail"), mails_path(:content => "#{message} ", :email => Friend.find(transaction.friend_id).email, :name => Friend.find(transaction.friend_id).name), :method => :post, :remote => true, :class => "button" %></td>
 			<% end %>
 	   
 	</tr>
