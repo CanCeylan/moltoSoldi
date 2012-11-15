@@ -13,7 +13,6 @@
     </div>
   <% end %>
 
- 
   <div class="field">
     <%= f.label :friend_id %><br />
     <%= f.collection_select(:friend_id, current_user.friends, :id, :name, {:prompt => true})%>
@@ -26,6 +25,7 @@
     <%= f.label :t_tpye, "Type" %><br />
     <%= f.select(:t_type, Transaction::TRANSACTION_TYPES) %>
   </div>
+
 	<%= f.hidden_field :status, :value => 0 %>
   <div class="field">
     <%= f.label :deadline %><br />

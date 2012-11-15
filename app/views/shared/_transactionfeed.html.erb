@@ -1,7 +1,10 @@
+<h3>Transactions (<%= @user.transactions.count %>)</h3><br>
 <% if @user.transactions.any? %>
-  <h3>Transactions (<%= @user.transactions.count %>)</h3>
+  
   <ol class="transactions">
     <%= render @transactions %>
   </ol>
   <%= will_paginate @transactions %>
+<% else %>
+You don't have any transactions. <br>Why don't you add from <%= link_to "here ?", transactions_url %>
 <% end %>

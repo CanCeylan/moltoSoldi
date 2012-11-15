@@ -10,8 +10,11 @@ class PostsController < ApplicationController
           tw.oauth_token_secret = twitter.token_secret
         end
         Twitter.update(params[:tweet])
+        @message = "Your tweet successfully sent to Twitter."
+      else 
+        @message = "Sorry, you first need to authenticate your Twitter acount."
       end
-    else params[:post_type] == "facebook" 
+    elsif params[:post_type] == "facebook" 
       if facebook = current_user.authentications.find_by_provider("facebook")  
           me = FbGraph::User.me(facebook.token)
           me.feed!(
@@ -19,6 +22,9 @@ class PostsController < ApplicationController
             :link => 'http://moltosoldi.herokuapp.com',
             :name => 'The best way of keeping track of lends & borrows from Orhan Can Ceylan.',
           )
+        @message = "Your post successfully sent to FaceBook."
+      else
+        @message = "Sorry, you first need to authenticate your FaceBook acount."
       end
     end
     

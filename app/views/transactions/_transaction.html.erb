@@ -1,6 +1,7 @@
 <li>
 	<div class="trans">
-	€ <%= transaction.amount %> <%= whatType(transaction.t_type) %>ed to
+	€ <%= transaction.amount %> 
+	<%= whatType(transaction.t_type)%>ed to
 	<%= link_to Friend.find(transaction.friend_id).name, '/friends/' + Friend.find(transaction.friend_id).id.to_s %><br>
 	<span class="timestamp">
 		Deadline is in <%= time_diff_in_natural_language(Time.now, transaction.deadline) %>
