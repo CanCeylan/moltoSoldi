@@ -1,6 +1,6 @@
 class Authentication < ActiveRecord::Base
   attr_accessible :provider, :uid, :token, :token_secret, :user_id
-  belongs_to :user, autosave: true
+  belongs_to :user
   
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_create do |user|
