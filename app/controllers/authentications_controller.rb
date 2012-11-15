@@ -6,7 +6,7 @@ class AuthenticationsController < ApplicationController
   def twitter
     omni = request.env["omniauth.auth"]
     authentication = Authentication.find_by_provider_and_uid(omni['provider'], omni['uid'])
-
+    raise omni.to_yaml
     if authentication
       flash[:notice] = "Logged in Successfully"
       sign_in_and_redirect User.find(authentication.user_id)

@@ -14,7 +14,10 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   
   def apply_omniauth(omni)
-    authentications.build(:provider => omni['provider'], :uid => omni['uid'], :token => omni['credentials'].token, :token_secret => omni['credentials'].token_secret)
+    authentications.build(:provider => omni['provider'], 
+                          :uid => omni['uid'], 
+                          :token => omni['credentials'].token, 
+                          :token_secret => omni['credentials'].secret)
   end
   
   def self.from_omniauth(auth)
