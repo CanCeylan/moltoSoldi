@@ -207,7 +207,8 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
   config.omniauth :facebook, '375586332523152', '5c22fc24f3ad7e208526368e87b25df9', {:scope => 'publish_stream'}
-  config.omniauth :twitter, '6jaqMt7kE9iVxh8hX0mmtQ', '5ZIydxRBFfEJxc2EzedahIxoeO8g1hZCQVqZFtWWNM'
+  #config.omniauth :twitter, '6jaqMt7kE9iVxh8hX0mmtQ', '5ZIydxRBFfEJxc2EzedahIxoeO8g1hZCQVqZFtWWNM'
+  config.omniauth :twitter, 'IKKOT98ZE5iJpLbQrno1Og', 'mVkcL3B95tKXYS2VjwEJruvpIBB39pUUw7j7vsj8'
   #config.omniauth :twitter, ENV["6jaqMt7kE9iVxh8hX0mmtQ"], ENV["5ZIydxRBFfEJxc2EzedahIxoeO8g1hZCQVqZFtWWNM"]
    
   # ==> Warden configuration
