@@ -2,10 +2,12 @@
 
 <div class="row">
   <aside class="span4">	
-	<%= render 'shared/transactions' %>  
+	<% if @transactions.any? %>
+	<%= render 'shared/transactions' %>
+	<% end %>  
 </aside>
 <div class="span8">
-		<%= render 'shared/calendarview' %>  
+	<%= render 'shared/calendarview' %>  
 </div>
 
 
